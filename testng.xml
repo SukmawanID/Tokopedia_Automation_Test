@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Tokopedia Suite" parallel="methods" thread-count="2">
+    <parameter name="browser" value=""/>
+    <listeners>
+        <listener class-name="listener.Listener"/>
+    </listeners>
+    <test name="Parallel Tests">
+        <classes>
+            <class name="test.TC001_LoginPage"/>
+            <class name="test.TC002_RegisterPage"/>
+        </classes>
+    </test>
+<!--    <test name="Login Tests">-->
+<!--        <classes>-->
+<!--            <class name="test.TC001_LoginPage"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Register Tests">-->
+<!--        <classes>-->
+<!--            <class name="test.TC002_RegisterPage"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>
