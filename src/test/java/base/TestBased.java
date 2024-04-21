@@ -47,7 +47,6 @@ public class TestBased {
         driver = DriverFactory.getNewInstance(browser);
         setDriver(driver);
         driver.get(url.tokopedia_homepage_url);
-        //driver.get(url.orange_hrm_url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
         Thread.sleep(2000);
