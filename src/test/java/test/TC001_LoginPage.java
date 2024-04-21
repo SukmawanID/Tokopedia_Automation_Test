@@ -21,19 +21,8 @@ public class TC001_LoginPage extends TestBased {
     @Test(priority = 1, retryAnalyzer = Retry.class)
     public void openLoginPage() throws InterruptedException {
         waitForPageLoad(driver);
-        String browser = System.getProperty("browser")!=null ? System.getProperty("browser") : properties.getProperty("browser");
-        switch (browser.toLowerCase()) {
-            case "firefox":
-                new HomePages(driver).clickExitLoginGoogleNofiticationBtn();
-                new HomePages(driver).clickLoginBtn();
-                new LoginPages(driver).title_Login_page();
-                new LoginPages(driver).clickExitLoginBtn();
-                break;
-            default:
-                new HomePages(driver).clickLoginBtn();
-                new LoginPages(driver).title_Login_page();
-                new LoginPages(driver).clickExitLoginBtn();
-                break;
-        }
+        new HomePages(driver).clickLoginBtn();
+        new LoginPages(driver).title_Login_page();
+        new LoginPages(driver).clickExitLoginBtn();
     }
 }

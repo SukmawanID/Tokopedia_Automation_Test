@@ -40,7 +40,6 @@ public class TestBased {
         project_name = properties.getProperty("projectName");
 
     }
-
     @Parameters("browser")
     @BeforeMethod
     public void setupDriver() throws InterruptedException {
@@ -52,6 +51,13 @@ public class TestBased {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
         Thread.sleep(2000);
+        switch (browser.toLowerCase()) {
+            case "firefox":
+                new HomePages(driver).clickExitLoginGoogleNofiticationBtn();
+                break;
+            default:
+                break;
+        }
     }
 
     @AfterMethod

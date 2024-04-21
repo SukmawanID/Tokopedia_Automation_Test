@@ -16,18 +16,7 @@ public class TC002_RegisterPage extends TestBased {
     @Test(priority = 1, retryAnalyzer = Retry.class)
     public void openRegisterPage() throws InterruptedException {
         waitForPageLoad(driver);
-        String browser = System.getProperty("browser")!=null ? System.getProperty("browser") : properties.getProperty("browser");
-        switch (browser.toLowerCase()) {
-            case "firefox":
-                new HomePages(driver).clickExitLoginGoogleNofiticationBtn();
-                new HomePages(driver).clickRegisterBtn();
-                new RegisterPages(driver).title_Register_page();
-                break;
-            default:
-                new HomePages(driver).clickRegisterBtn();
-                new RegisterPages(driver).title_Register_page();
-                break;
-        }
-
+        new HomePages(driver).clickRegisterBtn();
+        new RegisterPages(driver).title_Register_page();
     }
 }

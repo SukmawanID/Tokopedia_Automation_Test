@@ -24,7 +24,7 @@ public class DriverFactory {
                 chromeOptions.addArguments("--no-proxy-server");
                 chromeOptions.addArguments("--remote-allow-origins=*");
                 chromeOptions.addArguments("--disable-notifications");
-                WebDriverManager.chromedriver().setup();
+                WebDriverManager.chromedriver().clearDriverCache().setup();
                 return new ChromeDriver(chromeOptions);
             case "chrome":
                 chromeOptions = new ChromeOptions();
@@ -33,7 +33,7 @@ public class DriverFactory {
                 chromeOptions.addArguments("--disable-web-security");
                 chromeOptions.addArguments("--no-proxy-server");
                 chromeOptions.addArguments("--remote-allow-origins=*");
-                WebDriverManager.chromedriver().setup();
+                WebDriverManager.chromedriver().clearDriverCache().setup();
                 return new ChromeDriver(chromeOptions);
             case "firefox-headless":
                 FirefoxBinary firefoxBinary = new FirefoxBinary();
@@ -42,17 +42,17 @@ public class DriverFactory {
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.addPreference("dom.webnotifications.enabled", false);
                 firefoxOptions.setBinary(firefoxBinary);
-                WebDriverManager.firefoxdriver().setup();
+                WebDriverManager.firefoxdriver().clearDriverCache().setup();
                 return new FirefoxDriver(firefoxOptions);
             case "firefox":
                 firefoxOptions = new FirefoxOptions();
                 firefoxOptions.addPreference("dom.webnotifications.enabled", false);
-                WebDriverManager.firefoxdriver().setup();
+                WebDriverManager.firefoxdriver().clearDriverCache().setup();
                 return new FirefoxDriver(firefoxOptions);
             case "edge":
                 EdgeOptions  edgeOptions = new EdgeOptions();
                 edgeOptions.addArguments("--disable-notifications");
-                WebDriverManager.edgedriver().setup();
+                WebDriverManager.edgedriver().clearDriverCache().setup();
                 return new EdgeDriver(edgeOptions);
             default:
                 Map<String, Object> prefs = new HashMap<String, Object>();
@@ -64,7 +64,7 @@ public class DriverFactory {
                 chromeOptions.addArguments("--disable-web-security");
                 chromeOptions.addArguments("--no-proxy-server");
                 chromeOptions.addArguments("--remote-allow-origins=*");
-                WebDriverManager.chromedriver().setup();
+                WebDriverManager.chromedriver().clearDriverCache().setup();
                 return new ChromeDriver(chromeOptions);
         }
     }
